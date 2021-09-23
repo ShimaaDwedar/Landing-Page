@@ -1,20 +1,3 @@
-
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- *
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
 /**
  * Define Global Variables
  * 
@@ -30,13 +13,13 @@ let docFragment = document.createDocumentFragment();
 
 function deActivateAndLowlight(sec){
   sec.classList.remove("active");
-  document.getElementById('nav_sec'+sec.id[7]).style.backgroundColor = "white";
+  document.getElementById('nav_sec'+sec.id[7]).style.backgroundColor = "silver";  
 }
 
 function activateAndHighlight(sec){
   
   sec.classList.add("active");        //Set sections as active
-  document.getElementById('nav_sec'+sec.id[7]).style.backgroundColor = "lightblue";   //Highlight the selected section
+  document.getElementById('nav_sec'+sec.id[7]).style.backgroundColor = "white";   //Highlight the selected section
 }
 
 /**
@@ -76,21 +59,26 @@ function build_menu(){
 
   const nav_ul = document.getElementById("navbar__list");
   nav_ul.appendChild(docFragment);
+  nav_ul.style.backgroundColor = 'silver';
 
 }
 
+
+//main 
 build_menu();
 build_navBar();
+
+//onscroll to acheive the scrolling feature when a section is selected.
 onscroll = function () {
   let currScroll = document.documentElement.getBoundingClientRect();
   for (const sec of sections){
 
   if (currScroll.y + sec.offsetTop >= 0 && currScroll.y + sec.offsetTop <=  0.2*(sec.offsetHeight)){
-     for (const sc of sections){
-       if (sc != sec)
+     for (const sc of sections){        //iterate over the sections to deactivate the unselected ones.
+       if (sc != sec)               
         deActivateAndLowlight(sc);
      }
-     activateAndHighlight(sec);
+     activateAndHighlight(sec);         // activate the selected one
   }
 }
 };
