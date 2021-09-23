@@ -7,4 +7,4 @@ This project aims to build a multi-section landing page with any amount of conte
 
 
 ## Usage
-Mainly, the features on this small project is to made to make the page user-friendly. As JavaScript allows me to add dynamic features like scrolling to the selected section, activating this section by highlighting it, which makes the landing page funnier.    
+Mainly, the features on this small project is provided to make the page user-friendly. As JavaScript allows me to add dynamic features like scrolling to the selected section, activating this section by highlighting it, which makes the landing page funnier.    
